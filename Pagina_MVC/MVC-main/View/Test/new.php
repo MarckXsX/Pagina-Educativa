@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.108.0">
-    <title>TextilExport</title>
+    <title>Cuponera</title>
     
     <?php
     include_once './View/cabecera.php';
@@ -81,6 +81,7 @@
         <span class="fs-4">TITULO</span>
       </a>
 
+     
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         <i class="fa-regular fa-user"></i> <?=isset($_SESSION['login_data']['Nombres'])? $_SESSION['login_data']['Nombres']:' Cuenta' ?>
@@ -114,17 +115,7 @@
 
       <div class="col-md-12">
         <div class="h-100 p-5 text-bg-dark rounded-3 ">
-          <center>
-            <i class="fa-solid fa-toolbox fa-2xl"></i>
-            <h1>Administracion</h1>
-            <p>Bienvenido <?=$_SESSION['login_data']['Nombres']?>, se encuentra en la interfaz administrativa.</p>
-          </center>
-          <div class="d-flex justify-content-around">
-            <a type="button" class="btn btn-light" href="<?=PATH?>/Documentos/Administracion"><i class="fa-regular fa-file fa-lg"></i></i> Gestion de Documentos</a>
-            <a type="button" class="btn btn-light" href="<?=PATH?>/Foro/Administracion"><i class="fa-solid fa-pen-to-square fa-lg"></i>  Gestion de Foros</a>
-                        <a type="button" class="btn btn-light" href="<?=PATH?>/Test/Administracion"><i class="fa-solid fa-pen fa-lg"></i>  Gestion de Tests</a>
-            <a type="button" class="btn btn-light" href="<?=PATH?>/Usuarios/Administracion"><i class="fa-solid fa-user-pen fa-lg"></i>  Detalle de Usuarios</a>
-          </div>
+          <center><h1>Nuevo Recurso</h1> <i class="fa-solid fa-book fa-2xl"></i></center>
         </div>
       </div>
     
@@ -138,13 +129,66 @@
 
     </div>
 
-    <div class="row align-items-md-stretchS py-4">
 
-       
+
+    <?php
+        if(isset($errores)){
+            if(count($errores)>0){
+                echo "<div class='my-5 p-5 mb-4 bg-danger rounded-3'><ul>";
+                foreach ($errores as $error) {
+                    echo "<li>$error</li>";
+                }
+                echo "</ul></div>";
+
+            }
+        }
+        ?>
+
+
+    <div class="row align-items-md-stretchS py-4">
+        
+        <form role="form "action="<?= PATH ?>/Test/Add" method="POST">
+
+          <div class="row my-2">
+
+            <div class="form-group col-md-4 m-3">
+                <label for="Nombre">Titulo del Recurso:</label>
+                <div class="input-group my-2">
+                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-star-of-life"></i></span>
+                    <input type="text" class="form-control" name="Nombre" id="Nombre"  value="<?= isset($test)?$test['Nombre']:'' ?>" >
+                </div>
+            </div>
+
+            
+            <div class="form-group col-md-4 m-3">
+              <label for="Recurso">Recurso:</label>
+              <div class="input-group my-2">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-star-of-life"></i></span>
+                <input type="text" class="form-control" name="Recurso" id="Recurso" placeholder="Ingrese el link del recurso" value="<?= isset($test)?$test['Recurso']:'' ?>" >
+              </div>
+            </div>
+            
+            <div class="form-group col-md-12 m-3">
+              <label for="Descripcion">Descripcion:</label>
+              <div class="input-group my-2">
+                  <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-star-of-life"></i></span>
+                  <textarea class="form-control" name="Descripcion" id="Descripcion" rows="3"><?= isset($test)?$test['Descripcion']:'' ?></textarea>
+              </div>
+            </div>
+            
+            
+          </div>
+
+          
+
+            <input type="submit" class="btn btn-primary" value="Guardar" name="Guardar">
+            <a class="btn btn-danger" href="<?= PATH ?>/Test/Administracion">Cancelar</a>
+            
+        </form>
     </div>
 
  
-    
+    </div>
 
     <footer class="pt-3 mt-4 text-muted border-top">
       Marco Gerardo Serrano Lopez SL182556
@@ -152,17 +196,9 @@
   </div>
 </main>
 
-  <?php
-    include_once './View/Modales/VerCupon.php';
-  ?>
-
-
 
 <script>
-    $(document).ready(function () {
-        $('#tabla').DataTable();
-    });
-   
+    
 </script>
 
   </body>

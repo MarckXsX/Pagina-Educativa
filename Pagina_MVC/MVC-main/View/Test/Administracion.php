@@ -7,7 +7,7 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.108.0">
     <title>TextilExport</title>
-    
+
     <?php
     include_once './View/cabecera.php';
     ?>
@@ -66,16 +66,16 @@
 
     </style>
 
-    
+
   </head>
   <body>
-    
+
 <main>
   <div class="container py-4">
     <header class="pb-3 mb-4 border-bottom">
       <div class="d-flex justify-content-around">
 
-      
+
       <a href="#" class="d-flex align-items-center text-dark text-decoration-none">
       <i class="fa-solid fa-hand-holding-heart fa-bounce fa-2xl mx-3"></i>
         <span class="fs-4">TITULO</span>
@@ -87,7 +87,7 @@
         </button>
         <ul class="dropdown-menu dropdown-menu-dark">
         <?php
-            if(!isset($_SESSION['login_data']['Nombres'])){            
+            if(!isset($_SESSION['login_data']['Nombres'])){
             ?>
           <li><a class="dropdown-item" href="<?= PATH ?>/Usuarios/login">Iniciar Session</a></li>
           <?php
@@ -118,33 +118,59 @@
             <i class="fa-solid fa-toolbox fa-2xl"></i>
             <h1>Administracion</h1>
             <p>Bienvenido <?=$_SESSION['login_data']['Nombres']?>, se encuentra en la interfaz administrativa.</p>
+            <!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScPrFDaXIKgMM6MU_HQsDneCmWyRZu03Ds_wdfyP8jgP2eZDQ/viewform	" width="640" height="1660" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe> -->
+            <!-- <iframe src="https://drive.google.com/file/d/11UfBp6uXAHwRWwOodh0QFeB8yHtc3Gbx/preview" width="640" height="480" allow="autoplay"></iframe> -->
+            <!-- <iframe width="560" height="315" src="https://youtu.be/hrxjBqZWsb0?si=3EYhGAkKjHSDpe1s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+            <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/hrxjBqZWsb0?si=3EYhGAkKjHSDpe1s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+            <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/hrxjBqZWsb0?si=3EYhGAkKjHSDpe1s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+               <!-- <a href="https://drive.google.com/file/d/17b6kW0tbyV18qG85ZFWQjnWvmvc0Pz-n/view?usp=sharing" download="Documento.PDF">Descargar PDF</a> -->
           </center>
           <div class="d-flex justify-content-around">
-            <a type="button" class="btn btn-light" href="<?=PATH?>/Documentos/Administracion"><i class="fa-regular fa-file fa-lg"></i></i> Gestion de Documentos</a>
-            <a type="button" class="btn btn-light" href="<?=PATH?>/Foro/Administracion"><i class="fa-solid fa-pen-to-square fa-lg"></i>  Gestion de Foros</a>
-                        <a type="button" class="btn btn-light" href="<?=PATH?>/Test/Administracion"><i class="fa-solid fa-pen fa-lg"></i>  Gestion de Tests</a>
-            <a type="button" class="btn btn-light" href="<?=PATH?>/Usuarios/Administracion"><i class="fa-solid fa-user-pen fa-lg"></i>  Detalle de Usuarios</a>
+            <a type="button" class="btn btn-light" href="<?=PATH?>/Test/create"><i class="fa-regular fa-file fa-lg"></i> Nuevo Recurso</a>
+            <a type="button" class="btn btn-light" href="<?=PATH?>/Administracion"><i class="fa-solid fa-rotate-left fa-lg"></i> Regresar</a>
           </div>
         </div>
       </div>
-    
-      <!--<div class="col-md-6">
-        <div class="h-100 p-5 bg-light border rounded-3">
-          <h2>Add borders</h2>
-          <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
-          <button class="btn btn-outline-secondary" type="button">Example button</button>
-        </div>
-      </div>-->
+
 
     </div>
 
     <div class="row align-items-md-stretchS py-4">
 
-       
+       <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover table-responsive table-condensed" id="tabla" style="margin-top:20px;">
+                <thead>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Recurso</th>
+                    <th>Acciones</th>
+                </thead>
+                <tbody>
+                    <?php
+                    foreach($tests as $test){
+                    ?>
+                    <tr>
+                        <td><?=$test['ID']?></td>
+                        <td><?=$test['Nombre']?></td>
+                        <td><?=$test['Descripcion']?></td>
+                        <td><?=$test['Recurso']?></td>
+                        <td>
+                          <a type="button" class="btn btn-primary m-2" href="<?= PATH.'/Test/edit/'.$test['ID']?>"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
+                          <a type="button" class="btn btn-danger" href="<?= PATH ?>/Test/remove/<?= $test['ID'] ?>"><i class="fa-solid fa-delete-left"></i> Eliminar</button>
+                          <!-- <a href="<?= PATH ?>/View/img/DP2.pdf" download="Documento.PDF">Descargar PDF</a>                          -->
+                        </td>
+                    </tr>
+                    <?php
+                    }
+                    ?>
+                </tbody>
+        </table>
+      </div>
     </div>
 
- 
-    
+
+    </div>
 
     <footer class="pt-3 mt-4 text-muted border-top">
       Marco Gerardo Serrano Lopez SL182556
@@ -162,7 +188,6 @@
     $(document).ready(function () {
         $('#tabla').DataTable();
     });
-   
 </script>
 
   </body>

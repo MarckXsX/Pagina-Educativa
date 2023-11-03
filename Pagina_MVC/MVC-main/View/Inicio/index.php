@@ -26,13 +26,14 @@
                         <li class="nav-item"><a class="nav-link" href="#!">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Documentos">Documentos</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Foro">Foros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Test</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Nosotros</a></li>
                     </ul>
                     <ul class="navbar-nav mt-auto">
                     <?php
                     if(!isset($_SESSION['login_data']['Nombres'])){            
                     ?>
-                        <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Usuarios/login">Iniciar Seccion</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Usuarios/login">Iniciar Sesion</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Usuarios/register">Registro</a></li>
                     <?php
                     } else{ ?>

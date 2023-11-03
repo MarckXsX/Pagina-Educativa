@@ -5,6 +5,7 @@ include_once 'Controller/DocumentosController.php';
 include_once 'Controller/ForoController.php';
 include_once 'Controller/UsuariosController.php';
 include_once 'Controller/AdministracionController.php';
+include_once 'Controller/TestController.php';
 // include_once 'Controller/UsuariosController.php';
 //include_once 'Controller/CuponesController.php';
 // include_once 'Controller/OrdenesController.php';

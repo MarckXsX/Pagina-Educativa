@@ -28,13 +28,14 @@
                         <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Inicio">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Documentos">Documentos</a></li>
                         <li class="nav-item"><a class="nav-link" href="#scroll">Foros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">TEST</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Nosotros</a></li>
                     </ul>
                     <ul class="navbar-nav mt-auto">
                     <?php
                     if(!isset($_SESSION['login_data']['Nombres'])){            
                     ?>
-                        <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Usuarios/login">Iniciar Seccion</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Usuarios/login">Iniciar Sesion</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Usuarios/register">Registro</a></li>
                     <?php
                     } else{ ?>
@@ -57,6 +58,7 @@
                             <p class="card-text">Descripcion 1</p>
                             <p class="card-text">Descripcion 2</p>
                             <p class="card-text">Descripcion 3</p>
+                            <!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScPrFDaXIKgMM6MU_HQsDneCmWyRZu03Ds_wdfyP8jgP2eZDQ/viewform?embedded=true" width="640" height="1608" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe> -->
                             <a href="#scroll" class="btn btn-primary">Explorar</a>
                         </div>
                     </div>
@@ -78,9 +80,17 @@
                                     <div class="card-body">
                                         <h5 class="card-title"><?=$foro['Titulo']?></h5>
                                         <p class="card-text"><?=$foro['Descripcion']?></p>
-                                        
+                                        <?php
+                                        if(!isset($_SESSION['login_data']['Nombres'])){
+                                        ?>
+                                        <a type="button" class="btn btn-warning" href="<?=PATH?>/Usuarios/login">Ingresa sesion para continuar</a>
+                                        <?php
+                                        }else{
+                                        ?>
                                         <a type="button" class="btn btn-dark" href="<?= PATH.'/Foro/Vista/'.$foro['ID_FORO']?>">Ingresar</a>
-                                        
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
                             </div>
                         </div>
