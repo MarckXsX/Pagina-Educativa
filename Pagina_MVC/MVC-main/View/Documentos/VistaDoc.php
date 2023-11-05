@@ -28,7 +28,7 @@
                         <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Inicio">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Documentos">Documentos</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Foro">Foros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Test</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Test">Test</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Nosotros</a></li>
                     </ul>
                     <ul class="navbar-nav mt-auto">

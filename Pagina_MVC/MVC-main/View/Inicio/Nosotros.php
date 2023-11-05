@@ -14,8 +14,6 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="<?=PATH?>/View/assets/css/styles.css" rel="stylesheet" />
-        
-        
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -27,9 +25,9 @@
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Inicio">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Documentos">Documentos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#scroll">Foros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Test">TEST</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Foro">Foros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Test">Test</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#scroll">Nosotros</a></li>
                     </ul>
                     <ul class="navbar-nav mt-auto">
                     <?php
@@ -49,92 +47,69 @@
             </div>
         </nav>
         <!-- Header-->
-        <header class="masthead text-center" style="background-color: #292828;">
+        <header class="masthead text-center text-white">
             <div class="masthead-content">
-                <div class="container px-5 ">
-                    <div class="card">
-                        <div class="card-body">
-                            <h1 class="card-title masthead-heading mb-0">Foros de Interes</h1>
-                            <p class="card-text">Descripcion 1</p>
-                            <p class="card-text">Descripcion 2</p>
-                            <p class="card-text">Descripcion 3</p>
-                            <!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScPrFDaXIKgMM6MU_HQsDneCmWyRZu03Ds_wdfyP8jgP2eZDQ/viewform?embedded=true" width="640" height="1608" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe> -->
-                            <a href="#scroll" class="btn btn-primary">Explorar</a>
-                        </div>
-                    </div>
+                <div class="container px-5">
+                    <h1 class="masthead-heading mb-0">SOBRE NOSOTROS</h1>
+                    <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Saber mas</a>
                 </div>
             </div>
+            <div class="bg-circle-1 bg-circle"></div>
+            <div class="bg-circle-2 bg-circle"></div>
+            <div class="bg-circle-3 bg-circle"></div>
+            <div class="bg-circle-4 bg-circle"></div>
         </header>
         
         <!-- Content section 1-->
-        <section id="scroll" style="background-color: #343434;">
-            <div class="container px-5 ">
+        <section id="scroll">
+            <div class="container px-5">
                 <div class="row gx-5 align-items-center">
-                    <?php
-                    foreach($foros as $foro){
-                    ?>
-                    <div class="col-lg-12">
-                        <div class="p-3">
-                            <div class="card border-light mb-3">
-                                <div class="card-header">No: <?=$foro['ID_FORO']?></div>
-                                    <div class="card-body">
-                                        <h5 class="card-title"><?=$foro['Titulo']?></h5>
-                                        <p class="card-text"><?=$foro['Descripcion']?></p>
-                                        <?php
-                                        if(!isset($_SESSION['login_data']['Nombres'])){
-                                        ?>
-                                        <a type="button" class="btn btn-warning" href="<?=PATH?>/Usuarios/login">Ingresa sesion para continuar</a>
-                                        <?php
-                                        }else{
-                                        ?>
-                                        <a type="button" class="btn btn-dark" href="<?= PATH.'/Foro/Vista/'.$foro['ID_FORO']?>">Ingresar</a>
-                                        <?php
-                                        }
-                                        ?>
-                                    </div>
-                            </div>
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5"><img class="img-fluid rounded-circle" src="<?=PATH?>/View/img/Universidad_don_bosco.jpg" alt="UDB" /></div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                            <h2 class="display-4">Quiénes somos</h2>
+                            <p>Somos un grupo de estudiantes universitarios de la universidad Don Bosco del area de Ingeniera. Nuestra proposito es hacer que la educacion sobre el lenguaje de señas sea accesible para todos, y la realizacion de esto proyecto es fundamental para este proceso.</p>
                         </div>
                     </div>
-                    <?php
-                    }
-                    ?>
                 </div>
             </div>
         </section>
-
         <!-- Content section 2-->
-        <section>
-            <div class="container px-5">
+        <section style="background-color: #B6B6B6;">
+            <div class="container px-5" >
                 <div class="row gx-5 align-items-center">
                     <div class="col-lg-6">
                         <div class="p-5"><img class="img-fluid rounded-circle" src="<?=PATH?>/View/assets/img/02.jpg" alt="..." /></div>
                     </div>
                     <div class="col-lg-6">
                         <div class="p-5">
-                            <h2 class="display-4">FOROS INTERACTIVOS!</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+                            <h2 class="display-4">Justificación del Proyecto</h2>
+                            <p><p class="fw-bold">Inclusión y Comunicación Efectiva:</p> Las personas sordas se enfrentan a barreras significativas en la sociedad debido a la falta de comprensión del lenguaje de señas.
+                            La propuesta de una página web dedicada a esta lengua permite eliminar estas barreras y facilitar la comunicación efectiva entre personas sordas y oyentes. Esto no solo promueve la inclusión social, sino que también enriquece la vida de las personas sordas al permitirles participar plenamente en la sociedad.</p>
+                            <p><p class="fw-bold">Educación Integral:</p> El lenguaje de señas no es solo una herramienta de comunicación, sino también un medio esencial para la educación de personas sordas y oyentes interesados en aprenderlo.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Content section 3-->
-        <section style="background-color: #B6B6B6;">
+        <section >
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
                     <div class="col-lg-6 order-lg-2">
                         <div class="p-5"><img class="img-fluid rounded-circle" src="<?=PATH?>/View/assets/img/03.jpg" alt="..." /></div>
                     </div>
                     <div class="col-lg-6 order-lg-1">
-                        <div class="p-5 text-black">
-                            <h2 class="display-4">COMPARTE TUS OPINIONES!</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+                        <div class="p-5">
+                            <h2 class="display-4">Titulo3!</h2>
+                            <p>Descripcion</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
         <!-- Footer-->
         <footer class="py-5 bg-black">
             <div class="container px-5"><p class="m-0 text-center text-white small">Copyright &copy; Your Website 2023</p></div>

@@ -19,6 +19,10 @@ class InicioController extends Controller{
         $this->render("index.php");
     }
 
+    Public function Nosotros(){
+        $this->render("Nosotros.php");
+    }
+
 
 
 }

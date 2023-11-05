@@ -13,8 +13,8 @@ class TestController extends Controller{
 
 
     public function index(){
-       
-        $this->render("index.php");
+        $viewBag['tests']= $this->model->get();
+        $this->render("index.php",$viewBag);
     }
 
     public function Administracion(){
@@ -26,6 +26,13 @@ class TestController extends Controller{
     public function Create(){
        
         $this->render("new.php");
+    }
+
+    public function Vista($id){
+        $viewBag=array();
+        $Documentos=$this->model->get($id);
+        $viewBag['test']=$Documentos[0];
+        $this->render("VistaTest.php",$viewBag);
     }
 
     public function Add(){
@@ -46,7 +53,7 @@ class TestController extends Controller{
             
                 if ($formID !== false) {
                     // Generar el código HTML para incrustar el formulario de Google Forms
-                    $link = "https://docs.google.com/forms/d/e/". $formID . "/viewform"; 
+                    $link = "https://docs.google.com/forms/d/e/". $formID . "/viewform?embedded=true"; 
             
                     return $link;
                 }
@@ -111,6 +118,89 @@ class TestController extends Controller{
         $Test=$this->model->get($id);
         $viewBag['test']=$Test[0];
         $this->render("edit.php",$viewBag);
+    }
+
+    public function update($id){
+        if(isset($_POST['Guardar'])){
+            extract($_POST);
+            $errores=array();
+            $Test=array();
+            $viewBag=array();
+
+            $Test['ID']=$ID;
+            $Test['Nombre']=$Nombre;
+            $Test['Descripcion']=$Descripcion;
+            $Test['Recurso']=$Recurso;
+            
+            function generateGoogleFormsEmbed($formsURL) {
+                // Extraer el ID del formulario de Google Forms a partir del enlace proporcionado
+                $formID = getGoogleFormsID($formsURL);
+            
+                if ($formID !== false) {
+                    // Generar el código HTML para incrustar el formulario de Google Forms
+                    $link = "https://docs.google.com/forms/d/e/". $formID . "/viewform?embedded=true"; 
+            
+                    return $link;
+                }
+            
+                return false;
+            }
+            
+            function getGoogleFormsID($formsURL) {
+                $formID = false;
+            
+                // Patrones de URL válidos de Google Forms
+                $patterns = [
+                    '/docs.google.com\/forms\/d\/e\/([a-zA-Z0-9_-]+)\/viewform/', // Formato largo
+                    '/docs.google.com\/forms\/[d|u]\/([a-zA-Z0-9_-]+)\/viewform/' // Formato corto
+                ];
+            
+                foreach ($patterns as $pattern) {
+                    if (preg_match($pattern, $formsURL, $matches)) {
+                        $formID = $matches[1];
+                        break;
+                    }
+                }
+            
+                return $formID;
+            }
+
+            if(estaVacio($Nombre)||!isset($Nombre)){
+                array_push($errores,'Debes ingresar el Titulo del Recurso.');
+            }if(estaVacio($Descripcion)||!isset($Descripcion)){
+                array_push($errores,'Debes ingresar una Descripcion.');
+            }if(estaVacio($Recurso)||!isset($Recurso)){
+                array_push($errores,'Debes ingresar el link del recurso');
+            }elseif(isset($Recurso)){
+                $formsURL = $Recurso;
+                $embedCode = generateGoogleFormsEmbed($formsURL);
+
+                if ($embedCode) {
+                    $Test['Recurso']=$embedCode;
+                } else {
+                    array_push($errores,'URLde Google Forms no válida. Por favor, ingrese una URL válida');
+                }
+
+            }
+
+            if(count($errores)==0){
+              
+                
+                $this->model->updateTest($Test);
+                header('location:'.PATH.'/Test/Administracion');
+
+            }
+            else{
+                $viewBag['errores']=$errores;
+                $viewBag['test']=$Test;
+                $this->render("edit.php",$viewBag);
+            }
+        }
+    }
+
+    public function remove($id){
+        $this->model->removeTest($id);
+        header('location:'.PATH.'/Test/Administracion');
     }
 
 

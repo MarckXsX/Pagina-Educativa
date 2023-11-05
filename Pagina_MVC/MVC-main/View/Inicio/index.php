@@ -26,8 +26,8 @@
                         <li class="nav-item"><a class="nav-link" href="#!">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Documentos">Documentos</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Foro">Foros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Test</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Test">Test</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Inicio/Nosotros">Nosotros</a></li>
                     </ul>
                     <ul class="navbar-nav mt-auto">
                     <?php
@@ -78,7 +78,7 @@
             </div>
         </section>
         <!-- Content section 2-->
-        <section>
+        <section style="background-color: #B6B6B6;">
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
                     <div class="col-lg-6">

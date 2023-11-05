@@ -118,7 +118,8 @@
             <i class="fa-solid fa-toolbox fa-2xl"></i>
             <h1>Administracion</h1>
             <p>Bienvenido <?=$_SESSION['login_data']['Nombres']?>, se encuentra en la interfaz administrativa.</p>
-            <!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScPrFDaXIKgMM6MU_HQsDneCmWyRZu03Ds_wdfyP8jgP2eZDQ/viewform	" width="640" height="1660" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe> -->
+            <!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScPrFDaXIKgMM6MU_HQsDneCmWyRZu03Ds_wdfyP8jgP2eZDQ/viewform?embedded=true" width="640" height="1660" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe> -->
+            <!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScPrFDaXIKgMM6MU_HQsDneCmWyRZu03Ds_wdfyP8jgP2eZDQ/viewform?embedded=true" width="640" height="1628" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe> -->
             <!-- <iframe src="https://drive.google.com/file/d/11UfBp6uXAHwRWwOodh0QFeB8yHtc3Gbx/preview" width="640" height="480" allow="autoplay"></iframe> -->
             <!-- <iframe width="560" height="315" src="https://youtu.be/hrxjBqZWsb0?si=3EYhGAkKjHSDpe1s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
             <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/hrxjBqZWsb0?si=3EYhGAkKjHSDpe1s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->

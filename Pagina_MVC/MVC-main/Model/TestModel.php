@@ -20,7 +20,7 @@ class TestModel extends Model{
     }
 
     public function updateTest($test=array()){
-        $query="UPDATE tests SET Nombre=:Nombre, Descripcion=:Descripcion, Recurso=:Recurso, WHERE ID=:ID";
+        $query="UPDATE tests SET Nombre=:Nombre, Descripcion=:Descripcion, Recurso=:Recurso WHERE ID=:ID";
         return $this->setQuery($query,$test);
 
     }

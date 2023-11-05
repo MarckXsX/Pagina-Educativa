@@ -28,7 +28,7 @@
                         <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Inicio">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="#scroll">Documentos</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Foro">Foros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">TEST</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Test">TEST</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Nosotros</a></li>
                     </ul>
                     <ul class="navbar-nav mt-auto">
@@ -127,37 +127,39 @@
             </div>
         </section>
         <!-- Content section 2-->
-        <section>
-            <div class="container px-5">
-                <div class="row gx-5 align-items-center">
-                    <div class="col-lg-6">
-                        <div class="p-5"><img class="img-fluid rounded-circle"  alt="..." /></div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="p-5">
-                            <h2 class="display-4">Titulo1!</h2>
-                            <p>Descripcion</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Content section 3-->
-        <section style="background-color: #343434;">
+        <!-- Content section 1-->
+        <section id="scroll">
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
                     <div class="col-lg-6 order-lg-2">
-                        <div class="p-5"><img class="img-fluid rounded-circle"  alt="..." /></div>
+                        <div class="p-5"><img class="img-fluid rounded-circle" src="<?=PATH?>/View/img/Universidad_don_bosco.jpg" alt="UDB" /></div>
                     </div>
                     <div class="col-lg-6 order-lg-1">
-                        <div class="p-5 text-white">
-                            <h2 class="display-4">Titulo2!</h2>
-                            <p>Descripcion</p>
+                        <div class="p-5">
+                            <h2 class="display-4"></h2>
+                            <p></p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- Content section 2-->
+        <section style="background-color: #B6B6B6;">
+            <div class="container px-5" >
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="p-5"><img class="img-fluid rounded-circle" src="<?=PATH?>/View/assets/img/02.jpg" alt="..." /></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="p-5">
+                            <h2 class="display-4">...</h2>
+                            <p>Hola</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+       
         <!-- Footer-->
         <footer class="py-5 bg-black">
             <div class="container px-5"><p class="m-0 text-center text-white small">Copyright &copy; Your Website 2023</p></div>

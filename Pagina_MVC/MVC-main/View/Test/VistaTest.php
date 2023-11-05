@@ -28,17 +28,17 @@
                         <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Inicio">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Documentos">Documentos</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Foro">Foros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Test">TEST</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Test">Test</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Nosotros</a></li>
                     </ul>
                     <ul class="navbar-nav mt-auto">
                     <?php
                     if(!isset($_SESSION['login_data']['Nombres'])){            
                     ?>
-                        <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Usuarios/login">Iniciar Sesion</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Usuarios/login">Iniciar Seccion</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?=PATH?>/Usuarios/register">Registro</a></li>
                     <?php
-                    } else{  ?>
+                    } else{ ?>
                         <li class="nav-item"><a class="nav-link" href=""><?=($_SESSION['login_data']['Nombres'])?></a></li>
                         <li class="nav-item"><a class="nav-link" href="<?= PATH ?>/Usuarios/logout">Cerrar Sesion</a></li>
                     <?php
@@ -54,27 +54,12 @@
                 <div class="container px-5 ">
                     <div class="card">
                         <div class="card-body">
-                            <h1 class="card-title masthead-heading mb-0"><?=$foro['Titulo']?></h1>
-                            <p><?=$foro['Descripcion']?></p>
-                            <?php
-                            if(isset($errores)){
-                                if(count($errores)>0){
-                                    echo "<div class='my-5 p-5 mb-4 bg-danger rounded-3'><ul>";
-                                    foreach ($errores as $error) {
-                                        echo "<li>$error</li>";
-                                    }
-                                    echo "</ul></div>";
-
-                                }
-                            }
-                            ?>
+                            <h1 class="card-title masthead-heading mb-0"><?=$test['Nombre']?></h1>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
-
-       
         
         <!-- Content section 1-->
         <section id="scroll" style="background-color: #343434;">
@@ -83,31 +68,9 @@
                 <div class="masthead-content">
                 <div class="container px-5 ">
                     <div class="card">
-                        <div class="card-body">
-                            <?php
-                             foreach($Comentarios as $comentario){
-                            ?>
-                             <div class="input-group my-2 px-3" >
-                                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user px-2"></i> <?=$comentario['Nombres']?> </span>
-                                <textarea class="form-control" readonly="true" name="Coment" id="Coment" rows="3"><?= isset($comentario)?$comentario['Comentario']:'' ?></textarea>
-                            </div>
-                            <?php
-                            }
-                            ?>
-                        </div>
                         <div class="card-body" >
-                            <form role="form "action="<?= PATH ?>/Foro/comentario" method="POST">
-                                <div class="form-group col-md-12 m-3">
-                                <input type="hidden" class="form-control" readonly="true" name="id_foro" id="id_foro"  value="<?= isset($foro)?$foro['ID_FORO']: $comet['id_foro'] ?>" >
-                                <input type="hidden" class="form-control" readonly="true" name="id_usuario" id="id_usuario"  value="<?=$_SESSION['login_data']['ID_Usuario']?>" >
-                                    <label for="Comentario">Comentario:</label>
-                                    <div class="input-group my-2 px-3" >
-                                        <span class="input-group-text" id="basic-addon1"><i class="fa-regular fa-comment"></i></span>
-                                        <textarea class="form-control" name="Coment" id="Coment" rows="3"><?= isset($comet)?$comet['Comentario']:'' ?></textarea>
-                                    </div>
-                                </div>
-                                <input type="submit" class="btn btn-success" value="Guardar" name="Guardar">
-                            </form>                      
+                            <p class="card-title masthead-heading mb-0 fs-4 py-4"><?=$test['Descripcion']?></p>                        
+                            <iframe src="<?=$test['Recurso']?>" width="640" height="600" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>                                                             
                         </div>
                     </div>
                 </div>

@@ -45,7 +45,7 @@ abstract class Model{
         }
         catch(Exception $e){
             $this->closeConnection();
-            return -1;
+            return $e;
         }
 
     }
